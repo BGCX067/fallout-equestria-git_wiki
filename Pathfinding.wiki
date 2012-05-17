@@ -6,12 +6,14 @@
 The pathfinding uses an AStar algorithm on a grid of cases linked using weighted arcs. It's 8 directional, thus the heuristic uses an euclidian distance. And of course, it always finds the best path in a minimal amount of time.
 
 = Pathfinding Process =
-When a character needs to find a path between a point and another, it asks the Tilemap class for a Pathfinding context in a given zone (in this case, the whole map).
-
-The Tilemap then create an empty Pathfinding context, and for the given zone, it checks the presence of walls and connect the cases with arcs when they should be.
+At loadinng time, the Tilemap first creates a Pathfinding context (it allocates every node and connects them with arcs if no wall obstructs the path).
 To avoid units to uselessly move diagonally, the top/left/right/bottom arcs have a weight of 1, whereas the diagonal arcs have a weight of 1.1.
 
-Then, every object from the map is processed for collisions, and arcs are deleted for every case they're filling.
+When a character needs to find a path between a point and another, it asks the Tilemap class for a Pathfinding context in a given zone (in this case, the whole map).
+
+The Tilemap then process every MapElement (characters, obstacles such as doors, etc) and ask them to withdraw the arcs they're obstructing. The MapElements complies and store information about the arcs they deleted.
+
+Once the path has been found, the character inform the Tilemap that he's done : the Tilemap then do the reverse operation and ask all the MapElement to restore the arcs they deleted.
 
 == Pathwalking ==
 Once the path has been found, the character follows the directions from the pathfinding algorithm.
@@ -19,14 +21,8 @@ At every loop turn, he asks the Tilemap for a Pathfinding context that goes only
 If not, he will use pathfinding again to find a new way to its destination. And stop moving if none are found.
 
 = Improvements =
-== Single Pathfinding Context ==
-This system is acceptable as long as only the player use pathfinding.
-In the future, dozens of characters may use the pathfinding algorithm at the same time. It is unacceptable to create a Pathfinding context each time that happens.
+== Single Processing of MapElement collision per loop turn ==
+Right now, the collisions with MapElements are checked everytime a character needs a path.
+It would be more optimal to only do it the first time someone asks for a path, and replace the withdrawed arcs at the end of the game loop.
 
-Plus, it would be neat if the Pathfinding Context was not generated everytime in the loop, but only when something changed on it.
-It would even be better to use a divide and conquer strategy, dividing the map on several zones that only updated themselves when something happened to them.
-
-=== Problems with this solution ===
-- The pathfinding context must ignore the character looking for a path, which requires to add arcs before pathfinding, and delete them after.
-
-- Doors must block the path for the player. But only locked doors can block the path of a NPC. Again.
+In the current state of things, it would be fairly easy to implement. It has, however, ONE drawback : Doors must block the path for the player. But only locked doors can block the path of a NPC. So the accessible arcs for some characters and some others may differ.
