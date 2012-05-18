@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary List and description of the planned skills.
 #labels Phase-Requirements
 
 = Introduction =
