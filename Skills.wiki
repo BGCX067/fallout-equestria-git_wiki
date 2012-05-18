@@ -1,0 +1,71 @@
+#summary One-sentence summary of this page.
+#labels Phase-Requirements
+
+= Introduction =
+
+This is the list of all the skills the game will implement and a short description of their influence on the games.
+Skills will be used in specific actions, but can also unlock special dialogues, like in New Vegas.
+
+This document is here to help us have a great deal of skills, like in the first Fallouts, but to make them all very useful to the game.
+We also need help balancing the skills.
+
+= Skill point system =
+Like in Fallout, at each level you will receive a certain amount of skill points based on your Intelligence.
+However, you will receive less skill points since some of them will be automatically attributed to the skills you used most between a level and the next one.
+
+== Small Guns ==
+Ability to fire small guns.
+
+== Big Guns ==
+Ability to fire big guns.
+
+== Energy Guns ==
+Ability to fire energy guns.
+
+== Explosives ==
+Ability to set up explosives and detect traps.
+Ability to use explosive weapons such as grenades.
+
+== Unarmed ==
+Affect the hoof-to-hoof combat.
+
+== Melee Weapons ==
+Ability to use melee weapons.
+
+== Medicine ==
+(Merge of Doctor and First Aid from Fallout1/2/Tactics)
+Ability to heal yourself or somepony else.
+Ability to craft drugs (with Science).
+A good level of medicine also improve the effect of drugs while decreasing the side-effects.
+
+== Repair ==
+Ability to repair stuff.
+Will also decrease the decay rate of your equipment.
+
+== Science ==
+Helps you sciencing all over the place.
+
+== Sneak ==
+Decreases your chance of being detected when you're in the line of sight of somepony.
+
+== Spellcasting ==
+Allow you to learn more complicated spells and to use them more efficiently.
+
+== Steal ==
+Increases your chances of not getting caught when you steal from somepony.
+
+== Barter ==
+Helps you get lower price when you barter with wastelanders.
+Will also bring a lot of dialogue possibilities.
+
+== Outdoorspony ==
+Ability to brew potions, and collect various items from animals and plants.
+Affect the random encounters in the wastelands.
+
+== Speech ==
+Impact the quality of your speech and your ability to choose words wisely.
+It is the major perk for dialogues.
+
+== Gambling ==
+Ability to play gambling games and bluff.
+Apart from helping you winning money in casinos, it will also be one of the major skill for dialogues.
