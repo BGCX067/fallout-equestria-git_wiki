@@ -26,3 +26,7 @@ Right now, the collisions with MapElements are checked everytime a character nee
 It would be more optimal to only do it the first time someone asks for a path, and replace the withdrawed arcs at the end of the game loop.
 
 In the current state of things, it would be fairly easy to implement. It has, however, ONE drawback : Doors must block the path for the player. But only locked doors can block the path of a NPC. So the accessible arcs for some characters and some others may differ.
+
+!!! Note for future me
+Try implementing the doors directly into the pathfinding system, at the levels of the arcs.
+Arcs are presents in Nodes from the NodeList containing the Path. This should resolve everything. Since Arcs are never deleted now, maybe have the doors add callback on them.
