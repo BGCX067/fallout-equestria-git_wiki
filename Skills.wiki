@@ -29,6 +29,10 @@ Ability to use explosive weapons such as grenades.
 == Unarmed ==
 Affect the hoof-to-hoof combat.
 
+== Lockpick ==
+Increases your chances to successfully lock pick.
+Decreases your chances to break a lock while picking.
+
 == Melee Weapons ==
 Ability to use melee weapons.
 
