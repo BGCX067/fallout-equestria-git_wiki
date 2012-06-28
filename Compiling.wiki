@@ -12,6 +12,10 @@ http://www.panda3d.org/download.php?sdk&version=1.8.0
 
 http://librocket.com/download
 
+*AngelScript*
+
+http://www.angelcode.com/angelscript/downloads.html
+
 = Compiling on Windows =
 On Windows, you must compile using the Visual Studio compiler (Panda3D does not support MinGW).
 
