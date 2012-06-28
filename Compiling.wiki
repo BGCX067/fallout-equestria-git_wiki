@@ -1,0 +1,25 @@
+#summary How to compile the project from the source
+
+= Installing the dependencies =
+
+Download and compile the dependencies from the following links.
+
+*Panda3D 1.8.0*
+
+http://www.panda3d.org/download.php?sdk&version=1.8.0
+
+*LibRocket*
+
+http://librocket.com/download
+
+= Compiling on Windows =
+On Windows, you must compile using the Visual Studio compiler (Panda3D does not support MinGW).
+
+= Compiling on Linux =
+There's a CMake file at the root of the git repository. Install the cmake package if it's not already done.
+
+Go into the build directory, and type 'cmake ..' to generate the Makefile.
+Once it's over, type 'make' to compile the project.
+
+= Executing =
+You must execute the game from the "build" directory.
