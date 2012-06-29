@@ -16,8 +16,10 @@ http://librocket.com/download
 
 http://www.angelcode.com/angelscript/downloads.html
 
+
 = Compiling on Windows =
 On Windows, you must compile using the Visual Studio compiler (Panda3D does not support MinGW).
+This project uses C++11, so you should set the corresponding option on your compiler.
 
 = Compiling on Linux =
 There's a CMake file at the root of the git repository. Install the cmake package if it's not already done.
