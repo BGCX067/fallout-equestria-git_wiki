@@ -8,11 +8,11 @@ Download and compile the dependencies from the following links.
 
 http://www.panda3d.org/download.php?sdk&version=1.8.0
 
-*LibRocket*
+*LibRocket 1.2.1*
 
 http://librocket.com/download
 
-*AngelScript*
+*AngelScript >= 2.23.1*
 
 http://www.angelcode.com/angelscript/downloads.html
 
