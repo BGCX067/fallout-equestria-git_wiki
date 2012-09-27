@@ -1,4 +1,4 @@
-#Describe the internal mechanics of the SPECIAL system
+#summary Describe the internal mechanics of the SPECIAL system
 
 = Introduction =
 
