@@ -8,7 +8,7 @@ Download and compile the dependencies from the following links.
 
 http://www.panda3d.org/download.php?sdk&version=1.8.0
 
-However, I recommand to use the 1.8.x CVS. The Rocket's module in 1.8.0 has a critical bug with the drag'n'drop feature, and we use it for inventory management.
+However, I recommand to use the devlopment vesrion (CVS). The Rocket's module in 1.8.0 has a critical bug with the drag'n'drop feature, and we use it for inventory management.
 If you already have a 1.8.0 compiled or installed, it's not that terrible, you just have to remember not to drag and drop items (or you will witness the might of the segmentation fault).
 
 *LibRocket 1.2.1*
