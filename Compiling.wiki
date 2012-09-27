@@ -19,6 +19,7 @@ http://librocket.com/download
 
 http://www.angelcode.com/angelscript/downloads.html
 
+  * Note for ArchLinux users: all the dependencies are available from AUR (librocket, angelscript and panda3d-cvs... so if you use yaourt (or another AUR package manager), you just have to type "yaourt -S librocket angelscript panda3d-cvs" to compile and install all the dependencies).
 
 = Compiling on Windows =
 On Windows, you must compile using the Visual Studio compiler (Panda3D does not support MinGW).
