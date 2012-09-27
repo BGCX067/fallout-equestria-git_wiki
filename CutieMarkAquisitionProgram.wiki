@@ -1,0 +1,28 @@
+#Describe the internal mechanics of the SPECIAL system
+
+= Introduction =
+
+Our implementation of the SPECIAL system, a.k.a the Cutie Mark Aquisition Program, is a big deal for the game engine. We had to do something flexible, allowing to tweaks any statistic, implement new perks, traits with very much ease.
+
+N.B.: We didn't give the possibility to have a statistic system that doesn't use the Fallout-like SPECIAL system (you can't use anything else than: Traits / SPECIAL / Statistics / Skills / Perks. You can however implement a lot of new behaviours using these, or part of these).
+
+The Cutie Mark Acquisition Program (CMAP for short) has been designed so that on the long term, it can also be used on other engine. The only dependency is the scripting engine AngelScript, and the event management system from our engine (which can easily be used anywhere else).
+
+The CMAP uses:
+  * JSON for the character sheets design,
+  * AngelScript for almost all data management,
+  * Rocket for displaying character sheets in-game.
+
+This means that you can tweak all the statistic mechanics directly from the special.as script (such as how much the strenght of a character should affect the melee damage he deals or his carry weight capacity).
+
+It also means that you can change the content of each statistic category (you can add traits, special attributes, statistics, skills and perks as you wish: they will be properly displayed in the view and you will be able to handle the mechanics from scripts).
+
+And it also means that the view is designed using RML/RCSS.
+So you can change it to your needs as well without a sweat.
+
+= Details =
+
+We'll detail the structure of the charsheet model and how to modify it.
+Then we'll go over the many hooks the the script file can implement.
+
+=== TODO: do what the two last lines says ===
