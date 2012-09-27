@@ -14,7 +14,7 @@ The inventory itself will be presented much like the one from Fallout Tactics (e
 
 Another possibility is to use an inventory system much like the one from Reisdent Evil, where you must organize your items so they fit. This will require a bit more code, but not too much, and provide a more realistic inventory.
 
-The inventory will be used to put your barding on, but also to put on a battle-saddle (the subject of battle-saddle is also covered in this entry).
+[Warning: turns out this probably won't be done:] The inventory will be used to put your barding on, but also to put on a battle-saddle (the subject of battle-saddle is also covered in this entry).
 
 == Barding ==
 Barding will inherit everything from the first Fallout : Armor Class, and a specific resistance to each kind of attack. Such as the Power Armor, they may change your characters statistics.
