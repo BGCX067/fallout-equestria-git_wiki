@@ -15,7 +15,7 @@ If you already have a 1.8.0 compiled or installed, it's not that terrible, you j
 
 http://librocket.com/download
 
-*AngelScript >= 2.23.1*
+*AngelScript == 2.25*
 
 http://www.angelcode.com/angelscript/downloads.html
 
