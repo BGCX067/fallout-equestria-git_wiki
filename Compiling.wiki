@@ -8,7 +8,7 @@ Download and compile the dependencies from the following links.
 
 http://www.panda3d.org/download.php?sdk&version=1.8.0
 
-However, I recommand to use the devlopment vesrion (CVS). The Rocket's module in 1.8.0 has a critical bug with the drag'n'drop feature, and we use it for inventory management.
+However, I recommand to use the devlopment vesrion (CVS) if you can. The Rocket's module in 1.8.0 has a critical bug with the drag'n'drop feature, and we use it for inventory management.
 If you already have a 1.8.0 compiled or installed, it's not that terrible, you just have to remember not to drag and drop items (or you will witness the might of the segmentation fault).
 
 *LibRocket 1.2.1*
@@ -18,8 +18,6 @@ http://librocket.com/download
 *AngelScript == 2.25*
 
 http://www.angelcode.com/angelscript/downloads.html
-
-  * Note for ArchLinux users: all the dependencies are available from AUR (librocket, angelscript and panda3d-cvs... so if you use yaourt (or another AUR package manager), you just have to type "yaourt -S librocket angelscript panda3d-cvs" to compile and install all the dependencies).
 
 = Compiling on Windows =
 On Windows, you must compile using the Visual Studio compiler (Panda3D does not support MinGW).
