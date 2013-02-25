@@ -28,7 +28,7 @@ http://code.google.com/p/fallout-equestria/source/browse/documents/msvc_procedur
 It is strongly unadvised to compile on Windows if you're not a developer. You WILL go crazy.
 
 = Compiling on Linux =
-There's a CMake file at the root of the git repository. Install the cmake package if it's not already done.
+There's a CMake file at the root of the git repository.
 
 Make sure you have all the dependencies installed first (cmake, panda3d, librocket, angelscript, sfml).
 
