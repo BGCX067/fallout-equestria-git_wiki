@@ -1,0 +1,32 @@
+#Documentation and how-tos (Work in progress)
+
+= Introduction =
+
+This here documentation will introduce you to scripting with our game engine.
+First thing to know is that our scripting language is AngelScript: it has a syntax similar to C, with garbage collecting features and links directly to the engine's native C++ API.
+
+You can learn how to write code in angelscript reading this documentation:
+
+http://www.angelcode.com/angelscript/sdk/docs/manual/doc_script.html
+
+== Firt things first ==
+=== What parts of the game use script ? ===
+Quite a few of them. Every scripts of each category is regrouped in a directory in the 'scripts' folder.
+
+Here's a list of things that can be scripted:
+
+- Articial Intelligences: they run when your a character is prompted to do something, allows you to implement behaviors into NPCs.
+
+- Buffs: they're used to implement effects on a character that settles over time. They can be linked with a visual effect and are exectued every once in a while until the effect wears out.
+
+- Dialogs: when writing dialogs, you have the liberty of setting hooks to the character's speeches. They can determine if the player can use an answer, or what happens if that answer is given.
+
+- Objects: the objects can have hooks define for when they're used in specific ways. This is, for example, where weapons effect are scripted.
+
+- Quests: whenever a condition or objective is completed in a quest, an 'update' hook is called so that the script (if there is one) can modify the quest and pick different endings for it.
+
+- Pipbuck: it is possible to write your own pipbuck application. The pipbuck itself has an API that allow application to display an interface or to interact with the game whenever they need to.
+
+= Scripting Characters =
+
+Work in progress
