@@ -27,6 +27,42 @@ Here's a list of things that can be scripted:
 
 - Pipbuck: it is possible to write your own pipbuck application. The pipbuck itself has an API that allow application to display an interface or to interact with the game whenever they need to.
 
+= Scripting Dialogs =
+We'll first start by learning how to script dialog. We'll use it to introduce ourselves to the data engine's API.
+
+        string HookInit()
+        {
+          return ("SpeechKey");
+        }
+
+Every dialog script starts with the HookInit function. The value it returned will be used to select the opening line of the dialog (pronounced by the NPC).
+We'll see how we can use that to make a character introduce himself only when he hasn't been met before:
+
+        string HookInit()
+        {
+          Data data_engine = level.GetDataEngine();
+          Data have_talked = data_engine["dialogs"]["Sterling"]["happened"];
+
+          if (have_talked.Nil())
+          {
+            have_talked = 1;
+            return ("FristGreetings");
+          }
+          return ("RegularGreetings");
+        }
+
+What are we seeing here ?
+In the first line, you're introduced to the level global variable. It sums up everything that happens outsite of the world map. We use it here to get an instance of the DataEngine.
+
+The DataEngine stores the game variables. There are many information that the game engine make available to you through it (character inventories, factions, pipbuck data and so on).
+You can also use it to store persistent variable (persistent meaning they will be saved with the game).
+
+The DataEngine uses the Data type. It's a dynamic wrapper for a string based data tree: you can dynamically creating or accessing branches using the index operator.
+We use this first to crete our own variable 'have_talked'. The condition then checks if this variable has already been set before: if not, we set it to '1' and return "FirstGreetings", which will be our character introducing himself to the player. If not, we will simply return "RegularGreetings", our character simply saying something of the like of "Hi".
+
+---
+Workd in progress
+
 = Scripting Characters =
 
 Work in progress
