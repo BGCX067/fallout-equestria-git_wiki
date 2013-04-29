@@ -9,6 +9,12 @@ You can learn how to write code in angelscript reading this documentation:
 
 http://www.angelcode.com/angelscript/sdk/docs/manual/doc_script.html
 
+The scripting langage is however fairly easy to apprehand, moreover if you're already familiar with other scripting languages.
+It's object oriented. Our script engine is based on hooks only, so you don't have to write your objects, but you'll deal with ours.
+
+Unlike many script language, the variable are typed, and there also is a notion of references (the @ character you'll see in some variable declarations).
+I will explain how to use the references whenever it is relevant. I believe everything else about the language is quite self-explanatory.
+
 == Firt things first ==
 === What parts of the game use script ? ===
 Quite a few of them. Every scripts of each category is regrouped in a directory in the 'scripts' folder.
