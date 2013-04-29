@@ -3,7 +3,24 @@
 = Introduction =
 
 This here documentation will introduce you to scripting with our game engine.
+
+== Firt things first ==
+=== How do I AngelScript ? ==
 First thing to know is that our scripting language is AngelScript: it has a syntax similar to C, with garbage collecting features and links directly to the engine's native C++ API.
+
+Here's a sample of what it looks like
+{{{
+int absolute(int parameter)
+{
+  int result;
+
+  if (parameter < 0)
+    result = -parameter;
+  else
+    return = parameter;
+  return (parameter);
+}
+}}}
 
 You can learn how to write code in angelscript reading this documentation:
 
@@ -15,7 +32,6 @@ It's object oriented. Our script engine is based on hooks only, so you don't hav
 Unlike many script language, the variable are typed, and there also is a notion of references (the @ character you'll see in some variable declarations).
 I will explain how to use the references whenever it is relevant. I believe everything else about the language is quite self-explanatory.
 
-== Firt things first ==
 === What parts of the game use script ? ===
 Quite a few of them. Every scripts of each category is regrouped in a directory in the 'scripts' folder.
 
