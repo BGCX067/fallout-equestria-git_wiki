@@ -135,6 +135,18 @@ There is several ways to interact with the statistic system, but when no logic i
 In the condition, we access the Speech skill variable and convert it as an Int with the AsInt method. AsString and AsFloat are also available.
 If the skill is superior to 75, we will return the special answer, but not before informing the data engine that the player 'knows about something' now.
 
+= Scripting Quests =
+It is possible to write quest without using scripts. The script however gives them the ability to evolve in non-linear ways.
+
+== The Hook ==
+Quest only have a single hook. It's called whenever the quest state has changed.
+The hook takes a single parameter which is the quest datastore (Data type again). We'll write a hook that allows us to set different development for a quest.
+
+{{{
+work in progress
+}}}
+
+
 = Scripting Characters =
 
 Work in progress
