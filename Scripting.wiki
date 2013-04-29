@@ -28,28 +28,33 @@ Here's a list of things that can be scripted:
 - Pipbuck: it is possible to write your own pipbuck application. The pipbuck itself has an API that allow application to display an interface or to interact with the game whenever they need to.
 
 = Scripting Dialogs =
+== The data engine ==
 We'll first start by learning how to script dialog. We'll use it to introduce ourselves to the data engine's API.
 
-        string HookInit()
-        {
-          return ("SpeechKey");
-        }
+{{{
+string HookInit()
+{
+  return ("SpeechKey");
+}
+}}}
 
 Every dialog script starts with the HookInit function. The value it returned will be used to select the opening line of the dialog (pronounced by the NPC).
 We'll see how we can use that to make a character introduce himself only when he hasn't been met before:
 
-        string HookInit()
-        {
-          Data data_engine = level.GetDataEngine();
-          Data have_talked = data_engine["dialogs"]["Sterling"]["happened"];
+{{{
+string HookInit()
+{
+  Data data_engine = level.GetDataEngine();
+  Data have_talked = data_engine["dialogs"]["Sterling"]["happened"];
 
-          if (have_talked.Nil())
-          {
-            have_talked = 1;
-            return ("FristGreetings");
-          }
-          return ("RegularGreetings");
-        }
+  if (have_talked.Nil())
+  {
+    have_talked = 1;
+    return ("FristGreetings");
+  }
+  return ("RegularGreetings");
+}
+}}}
 
 What are we seeing here ?
 In the first line, you're introduced to the level global variable. It sums up everything that happens outsite of the world map. We use it here to get an instance of the DataEngine.
@@ -60,8 +65,53 @@ You can also use it to store persistent variable (persistent meaning they will b
 The DataEngine uses the Data type. It's a dynamic wrapper for a string based data tree: you can dynamically creating or accessing branches using the index operator.
 We use this first to crete our own variable 'have_talked'. The condition then checks if this variable has already been set before: if not, we set it to '1' and return "FirstGreetings", which will be our character introducing himself to the player. If not, we will simply return "RegularGreetings", our character simply saying something of the like of "Hi".
 
----
-Workd in progress
+== Visibility hooks ==
+The dialog tool from the Game Editor allows you to add hooks to answers.
+The simpler of those hooks is the visibility hook: it is used to select which of the current context's answers the player can pick.
+
+A visibility hook looks like this:
+
+{{{
+bool CanPlayerSayThis()
+{
+  Data data_enine = level.GetDataEngine();
+  Data knows_about_something = data_engine["stuff"]["knows_about_something"];
+
+  if (knows_about_something.Nil())
+    return (false); // The player can't say this cause he doesn't know about something
+  return (true); // The player knows about something and can say this
+}
+}}}
+
+Again we use the same features from the data engine to figure out if the player can or not pick one of our answers. The value can then be set from elsewhere when some NPC's make a revelation to the player's.
+
+== Answers hooks ==
+The second type of hook that can be set to an answer is executed when the player picks it: it will override the "GoTo" context configured in the dialog editor: the return value of your hook will be used instead, allowing you to chose what the NPC will answer to the player's pick.
+
+In this exemple, we'll introduce the Character and Statistics object to make a skill check allowing a special answer to the player if he has spent enough skill points on speech:
+
+{{{
+string AnswerToQuestion()
+{
+  Character@ player      = level.GetPlayer();
+  Data       statistics  = player.GetStatistics();
+
+  if (statistics["Skills"]["Speech"].AsInt() > 75)
+  {
+    Data     data_engine = level.GetDataEngine();
+
+    data_engine["stuff"]["knows about something"] = 1;
+    return ("SpecialAnswer");
+  }
+  return ("RegularAnswer");
+}
+}}}
+
+Here, we get a reference to the player's character object to get a handle on his statistics.
+There is several ways to interact with the statistic system, but when no logic is involved, you can simply access its datastore. You can check out a character sheet json file to get a look at the setup.
+
+In the condition, we access the Speech skill variable and convert it as an Int with the AsInt method. AsString and AsFloat are also available.
+If the skill is superior to 75, we will return the special answer, but not before informing the data engine that the player 'knows about something' now.
 
 = Scripting Characters =
 
