@@ -138,11 +138,8 @@ In the condition, we access the Speech skill variable and convert it as an Int w
 If the skill is superior to 75, we will return the special answer, but not before informing the data engine that the player 'knows about something' now.
 
 = Scripting Quests =
+== The Quest System ==
 It is possible to write quest without using scripts. The script however gives them the ability to evolve in non-linear ways.
-
-== The Hook ==
-Quest only have a single hook. It's called whenever the quest state has changed.
-The hook takes a single parameter which is the quest datastore (Data type again). We'll write a hook that allows us to set different development for a quest.
 
 The first thing to know is how quest are interpreted by the game engine.
 Your quest can basially be summed up as a list of objectives that are completed only when all their conditions are set to true.
@@ -187,6 +184,10 @@ It takes a little bit more parameters:
 === Custom conditions ===
 It is also possible to set up custom conditions that the game engine will ignore: they can however be completed from script (we'll see how later) and generate all the
  events that a regular condition fires (that is, when the objective is completed, your Quest hook (if there is one) will be executed).
+
+== The Hook ==
+Quest only have a single hook. It's called whenever the quest state has changed.
+The hook takes a single parameter which is the quest datastore (Data type again). We'll write a hook that allows us to set different development for a quest.
 
 {{{
 work in progress
