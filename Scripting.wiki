@@ -185,6 +185,25 @@ It takes a little bit more parameters:
 It is also possible to set up custom conditions that the game engine will ignore: they can however be completed from script (we'll see how later) and generate all the
  events that a regular condition fires (that is, when the objective is completed, your Quest hook (if there is one) will be executed).
 
+== The Quest Manager ==
+We just created a quest from scratch in our scripts. The next step is to chose when will we add this quest to the player's active quests.
+To do this, we will use the QuestManager, made available by the 'game' global variable:
+
+{{{
+void AddQuestToPlayer(Data quest_data)
+{
+  QuestManager@ quest_manager = game.GetQuestManager();
+
+  quest_manager.AddQuest(quest_data);
+}
+}}}
+
+Now whenever you want to add our previous quest to the player's active quests, you would just write {{{ AddQuestToPlayer(MyQuestDescription()); }}}.
+
+Calling the 'AddQuest' method will instantly make your quest available in the Quest application from the Pipbuck.
+
+The Quest Manager can also be used for getting data about quests, modifying them or force the completion of conditions. We'll see that later by writing our first Quest hook:
+
 == The Hook ==
 Quest only have a single hook. It's called whenever the quest state has changed.
 The hook takes a single parameter which is the quest datastore (Data type again). We'll write a hook that allows us to set different development for a quest.
