@@ -202,7 +202,7 @@ Now whenever you want to add our previous quest to the player's active quests, y
 
 Calling the 'AddQuest' method will instantly make your quest available in the Quest application from the Pipbuck.
 
-The Quest Manager can also be used for getting data about quests, modifying them or force the completion of conditions. We'll see that later by writing our first Quest hook:
+The Quest Manager can also be for modifying quests or force the completion of conditions. We'll see that later by writing our first Quest hook:
 
 == The Hook ==
 Quest only have a single hook. It's called whenever the quest state has changed.
