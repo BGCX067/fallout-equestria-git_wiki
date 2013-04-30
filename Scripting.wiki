@@ -49,6 +49,8 @@ Here's a list of things that can be scripted:
 
 - Pipbuck: it is possible to write your own pipbuck application. The pipbuck itself has an API that allow application to display an interface or to interact with the game whenever they need to.
 
+- Statistics (CMAP): the Cutie Mark Acquisition Program lets you set hooks to react to common events (gained xp, level up) and to determine the rules of the statistic system.
+
 = Scripting Dialogs =
 == The data engine ==
 We'll first start by learning how to script dialog. We'll use it to introduce ourselves to the data engine's API.
