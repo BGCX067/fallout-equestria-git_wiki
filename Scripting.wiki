@@ -148,6 +148,28 @@ The hook takes a single parameter which is the quest datastore (Data type again)
 work in progress
 }}}
 
+If you changed the objective or condition while being inside a level, you need to re-initialize the quest so that it is warned when the objectives targets states change.
+
+{{{
+void Update(Data quest_data)
+{
+  QuestManager@ quest_manager = game.GetQuestManager();
+  Quest@        quest         = quest_manager[quest_data.Key()];
+
+  //
+  // Make changes to the quest here
+  //
+  quest.Finalize();
+  quest.Initialize(level);
+}
+}}}
+
+Here we introduce a ton of new stuff.
+The second global variable for starters, 'game'. It contains every part of the game that are present both during the world map and level states. We use it to get a handle of the QuestManager, and then use the QuestManager to get a handle on the current Quest object.
+
+To initialize the quest again, we call the Finalize method to clean up the observers that already were on the level, and Initialize to reset them while taking account of the last modifications.
+
+The Initialize method takes a Level as a parameter (the global variable level here). If you are not inside a level, it is impossible (and irrelevant) to re-initialize a Quest.
 
 = Scripting Characters =
 
