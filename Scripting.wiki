@@ -236,5 +236,24 @@ To initialize the quest again, we call the Finalize method to clean up the obser
 The Initialize method takes a Level as a parameter (the global variable level here). If you are not inside a level, it is impossible (and irrelevant) to re-initialize a Quest.
 
 = Scripting Characters =
+Character's are part of a category of objects called DynamicObjects. Everything on the map that can be interacted with is a DynamicObject. They also have the ability to interact with each other and with the player on their own (if a script command them to, that is).
+
+Specific types of dynamic objects are doors, shelfs, items dropped on the ground, and as previously mentioned, characters (both NPCs and player).
+
+You need to know this because while scripting characters, you will very often be confronted to various specializations of DynamicObjects. Later, when scripting objects, you might have to filter those specializations in order to implement different behaviors for an object when used on different type of targets (ex: some pipbucky hacking device might unlock a closed door or locker, but when used on a computer, it would display an interface to crack the password).
+
+Back to characters.
+The characters hooks have a few specificities: unlike all the others, each of them is called on a regular basis.
+
+== The Loop Hooks ==
+Two of your character's hook will be loop hooks: one of them will determine the usual behavior of the character, the other one will control him during fights.
+
+Here are the prototypes for the two hooks:
+{{{
+  void main(Character@ self, float elapsedTime);
+  void combat(Character@ self);
+}}}
+
+Note that the first hook has an elapsedTime parameter, which allows you to know how much real time has elapsed since the last time the hook was called.
 
 Work in progress
