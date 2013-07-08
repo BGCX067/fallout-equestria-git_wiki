@@ -42,6 +42,8 @@ at the beginning of the function:
 Please note that the pathes are relative to your own installation. You'll have to manually check if the pathes
 are indeed correct. As far as I know, these are the default pathes for Visual Studio 2010 and the most recent Microsoft SDKs at this date, installed on a Windows 7.
 
+To ensure a proper linking between libp3rocket and the libRocket, you should also replace the Rocket includes from `panda3d\thirdparty\win-libs-vc9\rocket\include\Rocket` with those from `librocket\include\Rocket`.
+
 Now you can finally compile: at the root of the Panda3D folder, open a console prompt and run the following
 command:
 
