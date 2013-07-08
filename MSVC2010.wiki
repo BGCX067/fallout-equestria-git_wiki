@@ -84,9 +84,21 @@ We use CMakeList to allow easily portable build system.
 However we have no dependency detection for Windows. Actually none at all, it's only necessary for Windows I believe.
 
 This means you'll have to:
-- Generate MSVC2010 project files using CMake
-- Tweak the project's settings to add include and linking directories
+# Generate MSVC2010 project files using CMake
+# Tweak the project's settings to add include and linking directories
 
-It should be pretty easy.
+But first, you have to create the folder `fallout-equestria/include/Panda3D` and copy-past all the contents of `panda3d/built/include` inside.
 
-(TODO: finish this manual)
+* todo: insert cmake instructions here
+
+Then set the following parameters 
+
+Linking:
+# `panda3d\build\libs`
+# `libRocket\Build\Release`
+# `libRocket\Build\build\RocketControls\Release`
+# `angelscript\lib`
+
+Include:
+# `angelscript\include`
+# `libRocket\include`
