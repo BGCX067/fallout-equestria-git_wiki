@@ -1,0 +1,88 @@
+#summary Instructions on how to build the project with Windows
+#labels Phase-Deploy
+
+= Introduction =
+
+Greetings.
+Building on Windows can be pretty frightening.
+While compiling is usually a straight-forward procedure, whenever Visual Studio is involved, it gets tricky as soon as the lib you use aren't certified for a given version of Visual Studio.
+
+I'm fairly confident even a beginner would get the game building on any Linux distribution.
+But even myself, as main developer of the project, have had to work a lot to get the thing built on Windows.
+
+This document will help you go through with the hardest stuff and you'll be left over with some clicking left and right.
+
+== Requirements ==
+An installation of Microsoft Visual Studio 2010, with the Microsoft SDKs, and a little patience should be all you need.
+
+== Why isn't it as simple as typing 'make' ? ==
+
+The Fallout Equestria code makes a wildly use of the new C++11 standard, which was still unsupported with MSVC2008.
+We had to use MSVC2010, though C++11 features are still few, and were implemented in a very clumsy fashion.
+
+Unfortunately, Panda3D does not support MSVC2010 yet. Which means we have to compile it ourselves. And since we're doing it with an unsupported version of MSVC2010, we have some tweaking to do.
+
+= Compiling the dependencies =
+
+== Compiling Panda3D with MSVC2010 ==
+
+This was tested with Panda3D 1.8.0:
+http://www.panda3d.org/download/panda3d-1.8.0/panda3d-1.8.0-win32.zip
+
+Open `panda/src/nativenet/socket_portable.h` and replace all the occurences to bind with ::bind.
+
+Open `makepanda/makepandacore.py`, find the function SetupVisualStudioEnviron. Add these two lines
+at the beginning of the function:
+
+    SDK["VISUALSTUDIO"] = "C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\"
+    SDK["MSPLATFORM"]   = "C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v7.0A\\"
+
+Please note that the pathes are relative to your own installation. You'll have to manually check if the pathes
+are indeed correct, though this is the default path for them on an 64bit Windows 7.
+
+For the libRocket, it might also be a good idea to make sure that Rocket and Panda use the same
+headers.
+
+Now you can finally compile: at the root of the Panda3D folder, open a console prompt and run the following
+command:
+
+    makepanda\makepanda.bat --everything --no-python
+
+The dlls will be in built/bin and libs in build/lib.
+
+NOTES:
+It has already occured that MSVC complained about a name conflict between... unnamed enums. Don't ask me,
+ask VC's developers. This is happening in time_base.h. Some enum defining USEC: give it an unused name
+and evertyhing should be ok.
+
+== Compiling libRocket ==
+
+Before compiling the libRocket, you will have to make two search and replaces in all Rocket's files:
+
+From `Factory`      to `RFactory`,
+From `RFactory.hpp` to `Factory.hpp`
+
+This will avoid a conflict with Panda3D's own Factory class. Even though they're not even in the same
+namespace. Again, don't ask me.
+
+Then, find the Rocket/Core/Variant.inl file, seek for the GetInto template. There's a switch down there:
+you need to comment out the whole SCRIPTINTERFACE case.
+
+== Compiling AngelScript ==
+
+Angelscript compiles out of the box with MSVC2010, and does not conflict with anything from other libs.
+You should be good to go !
+
+= Compiling Fallout Equestria RPG =
+
+We use CMakeList to allow easily portable build system.
+
+However we have no dependency detection for Windows. Actually none at all, it's only necessary for Windows I believe.
+
+This means you'll have to:
+- Generate MSVC2010 project files using CMake
+- Tweak the project's settings to add include and linking directories
+
+It should be pretty easy.
+
+(TODO: finish this manual)
