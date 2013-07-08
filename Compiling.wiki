@@ -28,7 +28,7 @@ http://code.google.com/p/fallout-equestria/wiki/MSVC2010
 = Compiling on Linux =
 There's a CMake file at the root of the git repository.
 
-Make sure you have all the dependencies installed first (cmake, panda3d, librocket, angelscript, sfml).
+Make sure you have all the dependencies installed first (cmake, panda3d, librocket, angelscript).
 
 Go into the build directory, and type 'cmake ..' to generate the Makefile.
 Once it's over, type 'make' to compile the project.
