@@ -40,10 +40,7 @@ at the beginning of the function:
 }}}
 
 Please note that the pathes are relative to your own installation. You'll have to manually check if the pathes
-are indeed correct, though this is the default path for them on an 64bit Windows 7.
-
-For the libRocket, it might also be a good idea to make sure that Rocket and Panda use the same
-headers.
+are indeed correct. As far as I know, these are the default pathes for Visual Studio 2010 and the most recent Microsoft SDKs at this date, installed on a Windows 7.
 
 Now you can finally compile: at the root of the Panda3D folder, open a console prompt and run the following
 command:
