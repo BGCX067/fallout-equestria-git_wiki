@@ -94,11 +94,11 @@ But first, you have to create the folder `fallout-equestria/include/Panda3D` and
 Then set the following parameters 
 
 Linking:
-# `panda3d\build\libs`
-# `libRocket\Build\Release`
-# `libRocket\Build\build\RocketControls\Release`
-# `angelscript\lib`
+  # `panda3d\build\libs`
+  # `libRocket\Build\Release`
+  # `libRocket\Build\build\RocketControls\Release`
+  # `angelscript\lib`
 
 Include:
-# `angelscript\include`
-# `libRocket\include`
+  # `angelscript\include`
+  # `libRocket\include`
