@@ -29,7 +29,7 @@ Unfortunately, Panda3D does not support MSVC2010 yet. Which means we have to com
 This was tested with Panda3D 1.8.0:
 http://www.panda3d.org/download/panda3d-1.8.0/panda3d-1.8.0-win32.zip
 
-Open `panda/src/nativenet/socket_portable.h` and replace all the occurences to bind with ::bind.
+Open `panda/src/nativenet/socket_portable.h` and replace all the occurences to bind with ::bind. Do the same with `panda/built/include/socket_portable.h`.
 
 Open `makepanda/makepandacore.py`, find the function SetupVisualStudioEnviron. Add these two lines
 at the beginning of the function:
