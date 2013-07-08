@@ -20,12 +20,10 @@ http://librocket.com/download
 http://www.angelcode.com/angelscript/downloads.html
 
 = Compiling on Windows =
-On Windows, you must compile using the Microsoft Visual Studio compiler (Panda3D does not support MinGW).
-Unfortunately the Visual Studio compiler has many issues, and compiling the game with it would actually require you to edit and recompile some dependencies yourself.
-The following document explains what needs to be done:
-http://code.google.com/p/fallout-equestria/source/browse/documents/msvc_procedure
-
-It is strongly unadvised to compile on Windows if you're not a developer. You WILL go crazy.
+It was pretty hard to make it happen, but the game can build on Windows,
+and since it might not be that easy to do, we have a whole wiki page
+talking about it:
+http://code.google.com/p/fallout-equestria/wiki/MSVC2010
 
 = Compiling on Linux =
 There's a CMake file at the root of the git repository.
