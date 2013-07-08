@@ -91,7 +91,7 @@ But first, you have to create the folder `fallout-equestria/include/Panda3D` and
 
 * todo: insert cmake instructions here
 
-Then set the following parameters 
+Then add the path to the following directories into the project linking and include directories:
 
 Linking:
   # `panda3d\build\libs`
