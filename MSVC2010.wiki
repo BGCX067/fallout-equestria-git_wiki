@@ -34,8 +34,10 @@ Open `panda/src/nativenet/socket_portable.h` and replace all the occurences to b
 Open `makepanda/makepandacore.py`, find the function SetupVisualStudioEnviron. Add these two lines
 at the beginning of the function:
 
+{{{
     SDK["VISUALSTUDIO"] = "C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\"
     SDK["MSPLATFORM"]   = "C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v7.0A\\"
+}}}
 
 Please note that the pathes are relative to your own installation. You'll have to manually check if the pathes
 are indeed correct, though this is the default path for them on an 64bit Windows 7.
@@ -46,7 +48,9 @@ headers.
 Now you can finally compile: at the root of the Panda3D folder, open a console prompt and run the following
 command:
 
-    makepanda\makepanda.bat --everything --no-python
+{{{
+makepanda\makepanda.bat --everything --no-python
+}}}
 
 The dlls will be in built/bin and libs in build/lib.
 
@@ -62,10 +66,10 @@ Before compiling the libRocket, you will have to make two search and replaces in
 From `Factory`      to `RFactory`,
 From `RFactory.hpp` to `Factory.hpp`
 
-This will avoid a conflict with Panda3D's own Factory class. Even though they're not even in the same
+This will avoid a conflict with Panda3D's own `Factory` class. Even though they're not even in the same
 namespace. Again, don't ask me.
 
-Then, find the Rocket/Core/Variant.inl file, seek for the GetInto template. There's a switch down there:
+Then, find the `Rocket/Core/Variant.inl` file, seek for the `GetInto` template. There's a switch down there:
 you need to comment out the whole SCRIPTINTERFACE case.
 
 == Compiling AngelScript ==
