@@ -58,6 +58,7 @@ are indeed correct. As far as I know, these are the default pathes for Visual St
 To ensure a proper linking between libp3rocket and the libRocket, you should also replace the Rocket includes from `panda3d\thirdparty\win-libs-vc9\rocket\include\Rocket` with those from `librocket\include\Rocket`.
 
 You should also look for `RocketCore.lib` and `RocketControls.lib` in your previous build of libRocket. Replace the `RocketCore.lib` and `RocketControls.lib` from `panda3d\thirdparty\win-libs-vc9\rocket\bin` with those from your custom build.
+
 _N.B: if you are making a debug build, you need to find `RocketCore_d.lib` and `RocketControls_d.lib`, but the files you need to replace are still the same_
 
 Now you can finally compile: at the root of the Panda3D folder, open a console prompt and run the following
