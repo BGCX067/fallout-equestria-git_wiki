@@ -24,6 +24,19 @@ Unfortunately, Panda3D does not support MSVC2010 yet. Which means we have to com
 
 = Compiling the dependencies =
 
+== Compiling libRocket ==
+
+Before compiling the libRocket, you will have to make two search and replaces in all Rocket's files:
+
+From `Factory`      to `RFactory`,
+From `RFactory.hpp` to `Factory.hpp`
+
+This will avoid a conflict with Panda3D's own `Factory` class. Even though they're not even in the same
+namespace. Again, don't ask me.
+
+Then, find the `Rocket/Core/Variant.inl` file, seek for the `GetInto` template. There's a switch down there:
+you need to comment out the whole SCRIPTINTERFACE case.
+
 == Compiling Panda3D with MSVC2010 ==
 
 This was tested with Panda3D 1.8.0:
@@ -44,11 +57,20 @@ are indeed correct. As far as I know, these are the default pathes for Visual St
 
 To ensure a proper linking between libp3rocket and the libRocket, you should also replace the Rocket includes from `panda3d\thirdparty\win-libs-vc9\rocket\include\Rocket` with those from `librocket\include\Rocket`.
 
+You should also look for `RocketCore.lib` and `RocketControls.lib` in your previous build of libRocket. Replace the `RocketCore.lib` and `RocketControls.lib` from `panda3d\thirdparty\win-libs-vc9\rocket\bin` with those from your custom build.
+_N.B: if you are making a debug build, you need to find `RocketCore_d.lib` and `RocketControls_d.lib`, but the files you need to replace are still the same_
+
 Now you can finally compile: at the root of the Panda3D folder, open a console prompt and run the following
 command:
 
 {{{
-makepanda\makepanda.bat --everything --no-python
+makepanda\makepanda.bat --everything --no-python --no-ode
+}}}
+
+If you want to make a Debug build, run this instead:
+
+{{{
+makepanda\makepanda.bat --everything --no-python --no-ode --optimize 1
 }}}
 
 The dlls will be in built/bin and libs in build/lib.
@@ -57,19 +79,6 @@ NOTES:
 It has already occured that MSVC complained about a name conflict between... unnamed enums. Don't ask me,
 ask VC's developers. This is happening in time_base.h. Some enum defining USEC: give it an unused name
 and evertyhing should be ok.
-
-== Compiling libRocket ==
-
-Before compiling the libRocket, you will have to make two search and replaces in all Rocket's files:
-
-From `Factory`      to `RFactory`,
-From `RFactory.hpp` to `Factory.hpp`
-
-This will avoid a conflict with Panda3D's own `Factory` class. Even though they're not even in the same
-namespace. Again, don't ask me.
-
-Then, find the `Rocket/Core/Variant.inl` file, seek for the `GetInto` template. There's a switch down there:
-you need to comment out the whole SCRIPTINTERFACE case.
 
 == Compiling AngelScript ==
 
