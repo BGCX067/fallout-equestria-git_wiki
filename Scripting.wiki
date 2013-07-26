@@ -51,6 +51,13 @@ Here's a list of things that can be scripted:
 
 - Statistics (CMAP): the Cutie Mark Acquisition Program lets you set hooks to react to common events (gained xp, level up) and to determine the rules of the statistic system.
 
+- Tasks: Tasks are a way to ask for an AngelScript function to be executed only after a given amount of in-game time.
+
+- Zones: Zones are created with the Level Editor. When initialized properly, these objects can be used to detect when a character enters or leaves a zone. They can also be used to trigger effects executed regularly (pink cloud damages over time for instance).
+Note that zones *cannot* overlap with each other.
+
+- Levels: optionally, each level can use a script to execute code when loading and unloading the level. These scripts can be use for instance to initialize zone detections, or to execute 'global' code more often than a `Task` would.
+
 = Scripting Dialogs =
 == The data engine ==
 We'll first start by learning how to script dialog. We'll use it to introduce ourselves to the data engine's API.
