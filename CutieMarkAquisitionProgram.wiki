@@ -61,8 +61,8 @@ The SPECIAL points don't change as the player gains levels, but they can be infl
 Skills are competences that improve over time. The skills are arbitrary and are left to the choice of the game developer.
 Some of them though are directly required by the engine:
 
-* Outdoorspony, which is used in the worldmap to raise up the chances of detecting encounters before they detect you.
-* Sneak, which cause enemy characters to make a test before detecting an enemy.
+  * Outdoorspony, which is used in the worldmap to raise up the chances of detecting encounters before they detect you.
+  * Sneak, which cause enemy characters to make a test before detecting an enemy.
 
 The data is stored in two parts: the first contains the current level for each skill, and the second stores the amount of skill points that the player spent on specific skills. It looks like this:
 
