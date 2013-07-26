@@ -71,12 +71,12 @@ The data is stored in two parts: the first contains the current level for each s
   "Small Guns": 0,
   "Big Guns": 0,
   "Energy Guns": 15,
-  "etc...": '
+  "etc...": 0
 },
 "Skill Points": {
   "Small Guns": 0,
   "Big Guns": 0,
   "Energy Guns": 15,
-  "etc...": '
+  "etc...": 0
 }
 }}}
