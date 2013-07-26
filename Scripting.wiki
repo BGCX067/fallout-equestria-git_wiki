@@ -196,8 +196,7 @@ It takes a little bit more parameters:
 - object_quantity: the quantity of the object that needs to be reached for the condition to complete.
     
 === Custom conditions ===
-It is also possible to set up custom conditions that the game engine will ignore: they can however be completed from script (we'll see how later) and generate all the
- events that a regular condition fires (that is, when the objective is completed, your Quest hook (if there is one) will be executed).
+It is also possible to set up custom conditions that the game engine will ignore: they can however be completed from script (we'll see how later) and generate all the events that a regular condition fires (that is, when the objective is completed, your Quest hook (if there is one) will be executed).
 
 == The Quest Manager ==
 We just created a quest from scratch in our scripts. The next step is to chose when will we add this quest to the player's active quests.
