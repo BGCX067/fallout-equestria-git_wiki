@@ -287,6 +287,56 @@ Note that the first hook has an elapsedTime parameter, which allows you to know 
 
 Work in progress
 
+= Scheduling =
+The script engine provides you with feature to schedule events. These features allow you to ask for one of your functions to be called after a certain amount of in-game time has elapsed.
+
+Here, we will learn the scheduling feature along with the "AddTextBox" method that makes text pop above an object.
+We'll use it to create a dialog happening out of the boundaries of the dialog interfaces, only with text boxes: the scheduling features will help us making the sentences appear one after another.
+
+{{{
+// Let's assume this function is called when a certain event happens:
+void some_function()
+{
+  // The ApiDefineFunction is used to tell the script engine about a function
+  // from the current script file that you wish to expose to the rest of the game.
+  ApiDefineFunction("TheDialog", "void TheDialog()");
+
+  // The PushLevelTask will create the scheduled task.
+  PushLevelTask("TheDialog", 3);
+}
+}}}
+
+Pretty simple right ? As you can see, the first parameter of the PushLevelTask is the name of the function that needs to be called. The second parameter is the amount of in-game time, in seconds, that will elapse before said function is called.
+
+Let's use this to create a dialog:
+
+{{{
+// This variable will be used to count how many times the TheDialog function has been called
+int dialog_state = 0;
+
+void TheDialog(void)
+{
+  // We get the characters and convert them in DynamicObjects.
+  DynamicObject@ self   = level.GetCharacter("Sterling").AsObject();
+  DynamicObject@ player = level.GetPlayer().AsObject();
+
+  if (dialog_state == 0) // This is the first time the callback is called
+  {
+    self.AddTextBox("Howdy partner, talk to me if you wanna buy some stuff", 0, 255, 100, 3);
+    // We will call the same function in 4 seconds so that the "player" can
+    // give an answer to Sterling.
+    PushLevelTask("TheDialog", 4);
+  }
+  else
+  {
+    player.AddTextBox("Sure thing", 255, 255, 255, 3);
+  }
+  dialog_state++;
+}
+}}}
+
+A bit more about the AddTextBox: the first parameter, obviously, contains the text that the character is going to say. The three followings parameter are the RGB values used to color the text: it's pretty standard to have the text written in red when the text is pronounced angrily, to have it green when it is said kindly, or white for neutral. The last parameter is the realtime in seconds that will elapses before the text fades out.
+
 = Scripting Level =
 The Level script is a little thing that allows you to execute code at the beginning and the end of a level. It also has a hook that is called once for every frame rendered.
 
