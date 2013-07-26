@@ -26,3 +26,35 @@ We'll detail the structure of the charsheet model and how to modify it.
 Then we'll go over the many hooks the the script file can implement.
 
 === TODO: do what the two last lines says ===
+
+== General Information ==
+The statistic sheet starts with the primary informations:
+{{{
+"Name": "Character's name",
+"Age": 16,
+"Gender": "Male/Female",
+"Race": "Changeling",
+"Faction": "A faction name"
+}}}
+
+The faction system will be explained later in this document. It is used to determine who attacks you on sight and who doesn't.
+
+== SPECIAL Statistics ==
+The primary statistics are the SPECIAL values that we all came to know quite well: in order, Strength, Perception, Endurance, Charisma, Intelligence, Agility, Luck.
+The statistic sheet depict them like this:
+{{{
+"Special": {
+  "STR": 5,
+  "PER": 5,
+  "END": 5,
+  "CHA": 5,
+  "INT": 5,
+  "AGI": 5,
+  "LUC": 5
+}
+}}}
+
+SPECIAL will have an impact on the Statistics and the Skills.
+
+== Skills ==
+Skills 
