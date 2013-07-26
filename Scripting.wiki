@@ -137,6 +137,20 @@ There is several ways to interact with the statistic system, but when no logic i
 In the condition, we access the Speech skill variable and convert it as an Int with the AsInt method. AsString and AsFloat are also available.
 If the skill is superior to 75, we will return the special answer, but not before informing the data engine that the player 'knows about something' now.
 
+== Inline scripts ==
+It is possible to embed scripted content in any piece of text that a character says. It can be used, for instance, to display the character's name: the NPC's line will look like this `Howdy #{player_name} ! Mighty fine day we're having right ?`
+
+The `#{player_name}` will be replaced by the return value of a function called `player_name` in your script. In our case, the function would look like this:
+
+{{{
+string player_name()
+{
+  return (level.GetPlayer().GetName());
+}
+}}}
+
+Note that if you wish to use the `#{` characters in a dialog text, you can avoid the script replacement by escaping the sharp character like this `\#{`.
+
 = Scripting Quests =
 == The Quest System ==
 It is possible to write quest without using scripts. The script however gives them the ability to evolve in non-linear ways.
