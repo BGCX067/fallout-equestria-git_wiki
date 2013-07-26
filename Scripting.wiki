@@ -430,7 +430,7 @@ Very simple, take this for instance:
   }
 }}}
 
-=== Perform effects regularly ===
+=== Performing effects on a regular basis ===
 You might also want an effect to be executed at a defined interval. Here's how to do it:
 
 {{{
