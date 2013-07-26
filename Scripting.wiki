@@ -335,7 +335,7 @@ void TheDialog(void)
 }
 }}}
 
-A bit more about the AddTextBox: the first parameter, obviously, contains the text that the character is going to say. The three followings parameter are the RGB values used to color the text: it's pretty standard to have the text written in red when the text is pronounced angrily, to have it green when it is said kindly, or white for neutral. The last parameter is the realtime in seconds that will elapses before the text fades out.
+A bit more about the AddTextBox method: the first parameter, obviously, contains the text that the character is going to say. The three followings parameter are the RGB values used to color the text: it's pretty standard to have the text written in red when the text is pronounced angrily, to have it green when it is said kindly, or white for neutral. The last parameter is the realtime in seconds that will elapses before the text fades out.
 
 = Scripting Level =
 The Level script is a little thing that allows you to execute code at the beginning and the end of a level. It also has a hook that is called once for every frame rendered.
