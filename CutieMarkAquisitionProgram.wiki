@@ -55,6 +55,28 @@ The statistic sheet depict them like this:
 }}}
 
 SPECIAL will have an impact on the Statistics and the Skills.
+The SPECIAL points don't change as the player gains levels, but they can be influenced by modifiers.
 
 == Skills ==
-Skills 
+Skills are competences that improve over time. The skills are arbitrary and are left to the choice of the game developer.
+Some of them though are directly required by the engine:
+
+* Outdoorspony, which is used in the worldmap to raise up the chances of detecting encounters before they detect you.
+* Sneak, which cause enemy characters to make a test before detecting an enemy.
+
+The data is stored in two parts: the first contains the current level for each skill, and the second stores the amount of skill points that the player spent on specific skills. It looks like this:
+
+{{{
+"Skills": {
+  "Small Guns": 0,
+  "Big Guns": 0,
+  "Energy Guns": 15,
+  "etc...": '
+},
+"Skill Points": {
+  "Small Guns": 0,
+  "Big Guns": 0,
+  "Energy Guns": 15,
+  "etc...": '
+}
+}}}
