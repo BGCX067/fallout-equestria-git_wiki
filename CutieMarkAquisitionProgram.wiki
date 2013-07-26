@@ -80,3 +80,36 @@ The data is stored in two parts: the first contains the current level for each s
   "etc...": 0
 }
 }}}
+
+== Statistics ==
+The statistics are a set of values with a practical application in the game:
+
+{{{
+"Statistics": {
+  "Action Points": 5,
+  "Armor Class": 5,
+  "Bonus Damage": 0
+  "Carry Weight": 100,
+  "Critical Chance": 7,
+  "Damage Resistance": 0,
+  "Healing Rate": 1,
+  "Hit Points": 26,
+  "Melee Damage": 1,
+  "Perk Rate": 3,
+  "Poison Resistance": 15,
+  "Radiation Resistance": 6,
+  "Skill Rate": 19
+}
+}}}
+
+These fields are directly from the original Fallout. Only some of these are actually mandatory:
+
+  * Action points
+  * Armor Class
+  * Carry Weight
+  * Healing Rate
+  * Hit Points
+  * Perk Rate
+  * Skill Rate
+
+Just like the skill, there's a second store called "Statistics Modifiers" which needs to be used when a perks, item or whatever changes the value of a statistics: the "Statistics" store must never be changed during the game, only the CMAP should edit it.
