@@ -42,26 +42,28 @@ Quite a few of them. Every scripts of each category is regrouped in a directory 
 
 Here's a list of things that can be scripted:
 
-- Articial Intelligences: they run when your a character is prompted to do something, allows you to implement behaviors into NPCs.
+- *Articial Intelligences*: they run when your a character is prompted to do something, allows you to implement behaviors into NPCs.
 
-- Buffs: they're used to implement effects on a character that settles over time. They can be linked with a visual effect and are exectued every once in a while until the effect wears out.
+- *Buffs*: they're used to implement effects on a character that settles over time. They can be linked with a visual effect and are exectued every once in a while until the effect wears out.
 
-- Dialogs: when writing dialogs, you have the liberty of setting hooks to the character's speeches. They can determine if the player can use an answer, or what happens if that answer is given.
+- *Dialogs*: when writing dialogs, you have the liberty of setting hooks to the character's speeches. They can determine if the player can use an answer, or what happens if that answer is given.
 
-- Objects: the objects can have hooks define for when they're used in specific ways. This is, for example, where weapons effect are scripted.
+- *Objects*: the objects can have hooks define for when they're used in specific ways. This is, for example, where weapons effect are scripted.
 
-- Quests: whenever a condition or objective is completed in a quest, an 'update' hook is called so that the script (if there is one) can modify the quest and pick different endings for it.
+- *Quests*: whenever a condition or objective is completed in a quest, an 'update' hook is called so that the script (if there is one) can modify the quest and pick different endings for it.
 
-- Pipbuck: it is possible to write your own pipbuck application. The pipbuck itself has an API that allow application to display an interface or to interact with the game whenever they need to.
+- *Pipbuck*: it is possible to write your own pipbuck application. The pipbuck itself has an API that allow application to display an interface or to interact with the game whenever they need to.
 
-- Statistics (CMAP): the Cutie Mark Acquisition Program lets you set hooks to react to common events (gained xp, level up) and to determine the rules of the statistic system.
+- *Statistics* (CMAP): the Cutie Mark Acquisition Program lets you set hooks to react to common events (gained xp, level up) and to determine the rules of the statistic system.
 
-- Tasks: Tasks are a way to ask for an AngelScript function to be executed only after a given amount of in-game time.
+- *Tasks*: Tasks are a way to ask for an AngelScript function to be executed only after a given amount of in-game time.
 
-- Zones: Zones are created with the Level Editor. When initialized properly, these objects can be used to detect when a character enters or leaves a zone. They can also be used to trigger effects executed regularly (pink cloud damages over time for instance).
+- *Zones*: Zones are created with the Level Editor. When initialized properly, these objects can be used to detect when a character enters or leaves a zone. They can also be used to trigger effects executed regularly (pink cloud damages over time for instance).
 Note that zones *cannot* overlap with each other.
 
-- Levels: optionally, each level can use a script to execute code when loading and unloading the level. These scripts can be use for instance to initialize zone detections, or to execute 'global' code more often than a `Task` would.
+- *Lights*: it is possible to control the lights directly from scripts to change their color, range, or to turn them on and off.
+
+- *Levels*: optionally, each level can use a script to execute code when loading and unloading the level. These scripts can be use for instance to initialize zone detections, or to execute 'global' code more often than a `Task` would.
 
 = Scripting Dialogs =
 == The data engine ==
