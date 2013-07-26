@@ -337,6 +337,62 @@ void entered_entry_zone(DynamicObject@ object)
 void finalize()
 {
   entry_zone.Delete(); // Cleaning up after you is a always a good practice
+  @entry_zone = null;
 }
 
+}}}
+
+The `Zone` object has of course more feature than that. We're going to enumerate them here:
+
+=== How do I get warned when a character exists the zone ===
+Ok, so we saw how to get a warning when a character enters a zone. What if you want to do the opposite ? There's a method for that:
+
+{{{
+  entry_zone.SetExitCallback("void exited_entry_zone(DyanmicObject@)");
+}}}
+
+Now the exited_entry_zone function will be called each time a character
+
+=== Toggle the zone on and off ===
+Zones can be toggled on and off, which allows you to stop your callbacks for being called when a character gets in or out of a zone.
+
+{{{
+  entry_zone.SetEnabled(true);  // Enables the zone
+  entry_zone.SetEnabled(false); // Disables the zone
+}}}
+
+=== Checking if a character is in the zone ===
+Very simple, take this for instance:
+{{{
+  if (entry_zone.IsInside(level.GetPlayer())
+  {
+    Cout("Yes he is in the zone !");
+  }
+}}}
+
+=== Perform effects regularly ===
+You might also want an effect to be executed at a defined interval. Here's how to do it:
+
+{{{
+Zone@ entry_zone;
+
+void my_effect(Zone@ zone)
+{
+  if (zone.IsInside(level.GetPlayer())
+  {
+    Cout("Player is inside zone during the effect");
+  }
+}
+
+void initialize()
+{
+  @entry_zone = Zone_Factory("worldmap", "void entered_entry_zone(DynamicObject@)");
+  entry_zone.SetEffect("my_effect", 5);
+  // The method my_effect will be called every 5 seconds until the effect is disabled
+}
+}}}
+
+You may also disable the effect by using the DisableEffect method:
+{{{
+  entry_zone.DisableEffect();
 }}}
