@@ -112,10 +112,22 @@ These fields are directly from the original Fallout. Only some of these are actu
   * Perk Rate: how much level must pass for a new perk to become available
   * Skill Rate: how much skill points are gained each level
 
-Just like the skill, there's a second store called "Statistics Modifiers" which needs to be used when a perks, item or whatever changes the value of a statistics: the "Statistics" store must never be changed during the game, only the CMAP should edit it.
+Just like for the skills, there's a second store called "Statistics Modifiers" which needs to be used when a perk, item or whatever, changes the value of a statistic.
+It stores the amount of all the cumulated changes in a statistic, so that the CMAP can recompute correctly the statistic when needed.
 
 == Traits ==
 Traits are specific traits of a character picked at the creation of a statistic sheet. They can never change over time.
 The usual philosophy behind a trait is that they are always both a curse and a blessing. For instance, if it makes you stronger, it also makes you slower.
 
 The default amount of traits available is two. Though it is possible to have more (or less) as long as it is done during the statistic sheet creation step.
+
+== Perks ==
+Perks are special. Perks will be explained here.
+
+== Faction ==
+Factions are special too. They'll be explained there.
+
+== The special.as script ==
+The special.as script, for some reason currently located in the script/ai directory, is used to react to events from the statistic interface sheet, or to other changes of the character (such as gaining a level or some experience).
+
+The special.as script is also used to select which enemy are encountered when an encounter happens on the world map.
