@@ -39,7 +39,7 @@ The statistic sheet starts with the primary informations:
 
 The faction system will be explained later in this document. It is used to determine who attacks you on sight and who doesn't.
 
-== SPECIAL Statistics ==
+== SPECIAL Points ==
 The primary statistics are the SPECIAL values that we all came to know quite well: in order, Strength, Perception, Endurance, Charisma, Intelligence, Agility, Luck.
 The statistic sheet depict them like this:
 {{{
@@ -113,3 +113,9 @@ These fields are directly from the original Fallout. Only some of these are actu
   * Skill Rate: how much skill points are gained each level
 
 Just like the skill, there's a second store called "Statistics Modifiers" which needs to be used when a perks, item or whatever changes the value of a statistics: the "Statistics" store must never be changed during the game, only the CMAP should edit it.
+
+== Traits ==
+Traits are specific traits of a character picked at the creation of a statistic sheet. They can never change over time.
+The usual philosophy behind a trait is that they are always both a curse and a blessing. For instance, if it makes you stronger, it also makes you slower.
+
+The default amount of traits available is two. Though it is possible to have more (or less) as long as it is done during the statistic sheet creation step.
