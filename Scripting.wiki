@@ -32,6 +32,11 @@ It's object oriented. Our script engine is based on hooks only, so you don't hav
 Unlike many script language, the variable are typed, and there also is a notion of references (the @ character you'll see in some variable declarations).
 I will explain how to use the references whenever it is relevant. I believe everything else about the language is quite self-explanatory.
 
+=== Glossary ===
+A few expressions used in this document might need clarification. Here goes:
+
+*realtime / in-game time*: realtime is simply the time that actually elapses, while in-game time points to the amount of time that elapses for the character in the game. Usually, they're both one and the same, but in-game time might be accelerated/decelerated or stopped in some circumstances (for instance, during a fight, each turn lasts for 10 seconds regardless of how much realtime elapsed).
+
 === What parts of the game use script ? ===
 Quite a few of them. Every scripts of each category is regrouped in a directory in the 'scripts' folder.
 
@@ -186,7 +191,9 @@ Data MyQuestDescription()
 }}}
 
 Here we create and store a description for a quest named "DummyQuest".
-This piece of code already helps us determine how quest, objectives and conditions are structured. I think the objective and condition part is self-explanatory.
+This piece of code already helps us determine how quest, objectives and conditions are structured.
+
+Here, the objective will be fulfilled when the following conditions are completed: "Sterling must be dead", and "Sterling's inventory must contain 2 'Keys'".
 
 Onto the conditions: here we make two conditions and we set their "type" variaable to different values. The types indicate the game engine to watch a particular kind of event on a specific character.
 
@@ -277,3 +284,59 @@ Here are the prototypes for the two hooks:
 Note that the first hook has an elapsedTime parameter, which allows you to know how much real time has elapsed since the last time the hook was called.
 
 Work in progress
+
+= Scripting Level =
+The Level script is a little thing that allows you to execute code at the beginning and the end of a level. It also has a hook that is called once for every frame rendered.
+
+Here are the prototype for the three hooks:
+{{{
+  void initialize(); // Called right after level loading
+  void finalize();   // Called right before destroying the level
+  void run(float elapsed_time); // Called once per frame rendered
+}}}
+
+The elapsed_time value sent to the run function corresponds to the amount of realtime that elapsed since the last call to the run function.
+
+In the following demonstration, we're going to use `Zones` to demonstrate both the use of these hooks and the usage of the `Zone` object.
+
+= Scripting Zone =
+Zones aren't scripted with files: any script can create a `Zone` object that will observe a specific zone and callback a function of your choice when someone enters or leaves the zone.
+
+A good practice is to setup zones using the hooks from the `Level` script. The following example will display the name of every object that enters a zone if it is a character. Check this out:
+
+{{{
+Zone@ entry_zone; // The handle to our Zone object
+
+// This is the initialize hook from the Level script.
+void initialize()
+{
+  // The Zone_Factory function creates a Zone object that observes the zone
+  // designated by the first parameter. Here, we are monitoring the zone called
+  // "worldmap", which is the name of the default entry zone for people coming
+  // from the worldmap.
+  @entry_zone = Zone_Factory("worldmap", "void entered_entry_zone(DynamicObject@)");
+}
+
+// This is the callback we described when creating the Zone object. It will
+// be called each time a character enters the zone.
+void entered_entry_zone(DynamicObject@ object)
+{
+  // AsCharacter is a method of DynamicObject that returns an ObjectCharacter if
+  // the current object is a character, or null otherwise.
+  ObjectCharacter@ character = object.AsCharacter();
+
+  if (@character != null)
+  {
+    // Cout() is used to write text on the standard output of the game.
+    // You can also use Write() to write on the game console instead.
+    Cout("Someone entered the entry zone: " + character.GetName());
+  }
+}
+
+// This is the finalize hook from the Level script:
+void finalize()
+{
+  entry_zone.Delete(); // Cleaning up after you is a always a good practice
+}
+
+}}}
