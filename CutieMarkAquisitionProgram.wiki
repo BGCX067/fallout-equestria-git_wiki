@@ -104,12 +104,12 @@ The statistics are a set of values with a practical application in the game:
 
 These fields are directly from the original Fallout. Only some of these are actually mandatory:
 
-  * Action points
-  * Armor Class
+  * Action Points
+  * Armor Class: define the chances of a character to dodge an attack
   * Carry Weight
-  * Healing Rate
+  * Healing Rate: how many hit points are healed each day.
   * Hit Points
-  * Perk Rate
-  * Skill Rate
+  * Perk Rate: how much level must pass for a new perk to become available
+  * Skill Rate: how much skill points are gained each level
 
 Just like the skill, there's a second store called "Statistics Modifiers" which needs to be used when a perks, item or whatever changes the value of a statistics: the "Statistics" store must never be changed during the game, only the CMAP should edit it.
