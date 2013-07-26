@@ -354,11 +354,19 @@ Ok, so we saw how to get a warning when a character enters a zone. What if you w
 Now the exited_entry_zone function will be called each time a character
 
 === Toggle the zone on and off ===
-Zones can be toggled on and off, which allows you to stop your callbacks for being called when a character gets in or out of a zone.
+Zones can be toggled on and off, which prevents your callbacks from being called.
 
 {{{
   entry_zone.SetEnabled(true);  // Enables the zone
   entry_zone.SetEnabled(false); // Disables the zone
+}}}
+
+You can also check if the zone is enabled or not by using
+{{{
+  if (entry_zone.IsEnabled())
+    Cout("Zone is enabled");
+  else
+    Cout("Zone is not enabled");
 }}}
 
 === Checking if a character is in the zone ===
