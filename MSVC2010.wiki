@@ -38,7 +38,7 @@ Then, find the `Rocket/Core/Variant.inl` file, seek for the `GetInto` template. 
 you need to comment out the whole SCRIPTINTERFACE case.
 
 === Other known issues ===
-If in the Source/Core/TextureResource.cpp file, you get warning about an int casting to a pointer, go to that file and in the lines that the compiler marked, replace NULL with nullptr.
+If in the `Source/Core/TextureResource.cpp` file, you get warning about an int casting to a pointer, go to that file and in the lines that the compiler marked, replace NULL with nullptr.
 
 == Compiling Panda3D with MSVC2010 ==
 
