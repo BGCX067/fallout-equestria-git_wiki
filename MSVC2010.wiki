@@ -68,13 +68,13 @@ Now you can finally compile: at the root of the Panda3D folder, open a console p
 command:
 
 {{{
-makepanda\makepanda.bat --everything --no-python --no-ode
+makepanda\makepanda.bat --everything --no-python --no-ode --no-opencv --no-fmodex
 }}}
 
 If you want to make a Debug build, run this instead:
 
 {{{
-makepanda\makepanda.bat --everything --no-python --no-ode --optimize 1
+makepanda\makepanda.bat --everything --no-python --no-ode --no-opencv --no-fmodex --optimize 1
 }}}
 
 The dlls will be in built/bin and libs in build/lib.
