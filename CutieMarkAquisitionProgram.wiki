@@ -122,7 +122,73 @@ The usual philosophy behind a trait is that they are always both a curse and a b
 The default amount of traits available is two. Though it is possible to have more (or less) as long as it is done during the statistic sheet creation step.
 
 == Perks ==
-Perks are special. Perks will be explained here.
+Perks are gained sometimes when a characters level up. The amount of levels that need to pass before a perk is gained is defined in `Statistics/Perk Rate`.
+
+The perks themselves are configured in the file `data/perks.json`. The file describe for each perk a set of requirements for the character to be able to pick the perk.
+
+Here's a sample of `perks.json` file:
+
+{{{
+{
+  "Ninja": {
+    "Requirements": {
+      "Special/AGI": {
+        "Comp":  ">=",
+        "Value": 3
+      },
+     "Skills/Unarmed": {
+     },
+    "Description": "You're a freaking ninja."
+    }
+  },
+  "Wizardry": {
+    "Requirements": {
+      "Special/INT": {
+        "Comp":  ">",
+        "Value": 8
+      },
+      "Variables/Level": {
+        "Comp": ">=",
+        "Value": 3
+      }
+    },
+    "Description": "You are a wizard."
+  },
+  "One Legged": {
+    "Description": "Instead of picking of perk you cut three of your legs off."
+  }
+}
+}}}
+
+The perks can have a set of requirements: these are used to check a value from the player's statistic sheet.
+Each block is named after the value it checks, and contains two variables:
+
+   * `Comp` which defines the nature of the operation (==, !=, >=, <=, >, <)
+   * `Value` which define the second operand of the operation
+
+For instance, the first condition to get the Ninja perk is: `Special/AGI >= 3`.
+
+When a perk is picked, the function "AddPerk" from the `special.as` script is called so that you can make changes to the statistics of the character:
+
+{{{
+bool AddPerk(Data statistics, string perk_name)
+{
+  int perk_points = statistics["Variables"]["Perks"].AsInt();
+
+  // Check if the player still has perk points to spend
+  if (perks_points > 0)
+  {
+    // Decrease the amount of perk points
+    statistics["Variables"]["Perks"] = perks_points - 1;
+    if (perk_name == "One Legged")
+    {
+      // Here goes the code to cut off the characters limbs.
+    }
+    return (true);
+  }
+  return (false);
+}
+}}}
 
 == Faction ==
 Factions are special too. They'll be explained there.
