@@ -81,6 +81,17 @@ The data is stored in two parts: the first contains the current level for each s
 }
 }}}
 
+The skills can also be affected by Affinities. A character with an affinity to a skill sees all the skills changes multiplied by 2 without changing the cost in skill points.
+
+Affinities are also stored in the stat sheet:
+
+{{{
+"Affinities": {
+  "Small Guns": 1,
+  "Unarmed": 1
+}
+}}}
+
 == Statistics ==
 The statistics are a set of values with a practical application in the game:
 
