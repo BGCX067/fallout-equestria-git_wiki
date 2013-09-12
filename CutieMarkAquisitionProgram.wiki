@@ -202,7 +202,14 @@ bool AddPerk(Data statistics, string perk_name)
 }}}
 
 == Faction ==
-Factions are special too. They'll be explained there.
+Factions define which character are hostile to which other characters. Each character is able to check another character and define whether its intention should be hostile, neutral or friendly.
+
+The "friendly" attitude is used in fights to cooperate and in the interface to show the player which people he'd rather not shoot at.
+
+Factions can be added and removed as the game goes on.
+
+*Actually this is not yet possible. TODO*
+
 
 == The special.as script ==
 The special.as script, for some reason currently located in the script/ai directory, is used to react to events from the statistic interface sheet, or to other changes of the character (such as gaining a level or some experience).
