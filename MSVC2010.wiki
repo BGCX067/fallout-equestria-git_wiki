@@ -50,6 +50,8 @@ Open `panda/src/nativenet/socket_portable.h` and replace all the occurences to b
 Open `makepanda/makepandacore.py`, find the function SetupVisualStudioEnviron. Add these two lines
 at the beginning of the function:
 
+// Never worked on my VMs. All my VMs used WinSDK7.0. Perhaps WinSDK7.1 required ?
+
 {{{
     SDK["VISUALSTUDIO"] = "C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\"
     SDK["MSPLATFORM"]   = "C:\\Program Files (x86)\\Microsoft SDKs\\Windows\\v7.0A\\"
