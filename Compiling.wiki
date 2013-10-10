@@ -11,6 +11,8 @@ http://www.panda3d.org/download.php?sdk&version=1.8.0
 However, I recommand to use the devlopment vesrion (CVS) if you can. The Rocket's module in 1.8.0 has a critical bug with the drag'n'drop feature, and we use it for inventory management.
 If you already have a 1.8.0 compiled or installed, it's not that terrible, you just have to remember not to drag and drop items (or you will witness the might of the segmentation fault).
 
+_Careful Windows users: our code uses C++11 features only supported since MSVC2010: you need the unstable Panda3D 1.9.0 to compile on Windows._
+
 *LibRocket 1.2.1*
 
 http://librocket.com/download
