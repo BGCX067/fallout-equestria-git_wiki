@@ -21,7 +21,7 @@ http://librocket.com/download
 http://www.angelcode.com/angelscript/downloads.html
 
 = Compiling on Windows =
-In order to compile on Windows, you'll have to use Visual Studio 2010.
+In order to compile on Windows, you'll have to use Visual Studio 2010, which you can acquire with the Windows SDK 7.1.
 
 Download this file:
 http://rdb.name/thirdparty-vc10.7z
