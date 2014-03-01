@@ -456,3 +456,23 @@ You may also disable the effect by using the DisableEffect method:
 {{{
   entry_zone.DisableEffect();
 }}}
+
+= Scripting a Party =
+== What's a party ==
+The party is a set of characters that can be inserted and removed at any moment in a level. They can be saved separately, which allows characters to be temporarily stripped away from a level, or even to move them from one level to another.
+
+There are several ways to make characters join a party:
+
+* Using an already existing character from a level and make him join the party.
+* Generate a new party member from a Data structure. The party member will become a character whenever the party gets inserted in a level.
+
+== Creating/Importing Party ==
+Parties are identified by a unique name, and can be required during the execution of a level using that name.
+
+If no party using the name provided is found, then a new Party will be created.
+
+== Exporting Party ==
+If you wish to move your party from level to level, you need to export it.
+Removing your party from the level will create a distinct file to save the party.
+
+In the case of characters who appear in different levels under certain conditions, I recommend you use the level script to import and export the party respectively in the initialize and finalize hooks, so as to always have the party available for all the levels.
